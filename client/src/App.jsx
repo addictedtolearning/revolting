@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Markdown from 'react-markdown'
 
 function App() {
   const [cause, setCause] = useState('');
@@ -41,7 +42,9 @@ function App() {
       {manifesto && (
         <div>
           <h2>Manifesto:</h2>
-          <p>{manifesto}</p>
+          <Markdown>
+            {manifesto}
+          </Markdown>
         </div>
       )}
     </>
