@@ -3,6 +3,7 @@
     "client-dev": "cd client && npm run dev"
   },
   "dependencies": {
-    "@netlify/functions": "^3.0.1"
+    "@netlify/functions": "^3.0.1",
+    "openai": "^4.87.3"
   }
 }

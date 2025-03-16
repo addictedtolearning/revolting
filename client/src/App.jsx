@@ -20,7 +20,7 @@ function App() {
     }
 
     var data = await resp.json();
-    setManifesto(JSON.stringify(data));
+    setManifesto(data.manifesto);
   }
 
   return (
