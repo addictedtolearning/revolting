@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "client-dev": "cd client && npm run dev"
+  },
+  "dependencies": {
+    "@netlify/functions": "^3.0.1"
+  }
+}
