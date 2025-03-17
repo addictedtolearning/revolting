@@ -7,7 +7,7 @@ function App() {
   const [manifesto, setManifesto] = useState('');
 
   async function getManifesto() {
-    var resp = await fetch('/.netlify/functions/hello', {
+    var resp = await fetch('/.netlify/functions/manifesto', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
