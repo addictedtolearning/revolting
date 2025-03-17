@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Markdown from 'react-markdown'
+import ManifestoRenderer from './ManifestoRenderer';
 
 function App() {
   const [cause, setCause] = useState('');
@@ -30,23 +30,19 @@ function App() {
         Viva la revolución!
       </h1>
       <div>
-        What is the cause of your revolution?
-        <textarea
-          value={cause}
-          onChange={(e) => setCause(e.target.value)}
-        />
+        <div className="subtitle">What is the cause of your revolution?</div>
+        <div className="cause-outer">
+          <textarea
+            value={cause}
+            className="cause-textarea"
+            onChange={(e) => setCause(e.target.value)}
+          />
+        </div>
       </div>
       <button onClick={() => getManifesto()}>
         Get the manifesto
       </button>
-      {manifesto && (
-        <div>
-          <h2>Manifesto:</h2>
-          <Markdown>
-            {manifesto}
-          </Markdown>
-        </div>
-      )}
+      <ManifestoRenderer manifesto={manifesto} />
     </>
   )
 }
