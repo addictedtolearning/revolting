@@ -24,3 +24,8 @@
     margin: 0px;
     margin-bottom: 25px;
 }
+
+.manifesto-word {
+    white-space: pre-wrap;
+}
+}

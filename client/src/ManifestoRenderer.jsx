@@ -1,19 +1,17 @@
-import Markdown from 'react-markdown'
 import './ManifestoRenderer.css';
 
 function ManifestoRenderer({ manifesto }) {
     if (!manifesto || manifesto.length === 0) {
         return null;
     }
-    console.log(manifesto)
     var manifestoString = '';
     for (var chunk of manifesto.split('\n')) {
-        if(chunk.trim().length === 0) {
+        if (chunk.trim().length === 0) {
             continue;
         }
         try {
             var event = JSON.parse(chunk);
-            if(event.choices[0].finish_reason !== null) {
+            if (event.choices[0].finish_reason !== null) {
                 break;
             }
             manifestoString += event.choices[0].delta.content;

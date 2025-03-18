@@ -12,7 +12,7 @@ export default async (req: Request, context: Context) => {
     messages: [
       {
         role: "system",
-        content: "Generate a dictatorial propaganda speech. It should be hilariously dramatic. Use capital words for emphasis."
+        content: "Generate a dictatorial propaganda speech. It should be hilariously dramatic. Use capital words for emphasis. Do not use any markdown, only reply in plain text."
       },
       {
         role: "user",
