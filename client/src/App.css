@@ -38,3 +38,59 @@
 h2 {
   text-align: center;
 }
+.button {
+  height: 50px;
+  width: 230px;
+  transition: all 1s, color 1s 0.2s;
+  white-space: nowrap;
+  color: black;
+  position: relative;
+  padding: 0px;
+  border-color: black;
+
+  iconify-icon {
+    transform: scale(0);
+    transform-origin: center;
+    transition: all 1s;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &.button-loading {
+    background: rgb(255, 162, 162);
+    animation: wiggle 0.3s infinite;
+    width: 80px;
+    color: transparent;
+    transition: all 1s, color 0s 0.2s;
+    iconify-icon {
+      transform: scale(1);
+    }
+    label {
+      display: none;
+    }
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

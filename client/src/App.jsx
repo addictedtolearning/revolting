@@ -1,35 +1,46 @@
 import { useState } from 'react'
 import './App.css'
 import ManifestoRenderer from './ManifestoRenderer';
+import "iconify-icon";
+
 
 function App() {
   const [cause, setCause] = useState('');
   const [manifesto, setManifesto] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   async function getManifesto() {
-    var resp = await fetch('/.netlify/functions/manifesto', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ cause }),
-    });
-    
-    if (!resp.ok) {
-      console.error('Failed to fetch manifesto:', resp.statusText);
-      return;
-    }
+    if (loading) return;
+    setLoading(true);
+    try {
+      var resp = await fetch('/.netlify/functions/manifesto', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cause }),
+      });
 
-    setManifesto([]);
-    const reader = resp.body.getReader();
-    let decoder = new TextDecoder();
-    let manifest = '';
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      manifest += decoder.decode(value);
-      setManifesto(manifest);
+      if (!resp.ok) {
+        console.error('Failed to fetch manifesto:', resp.statusText);
+        return;
+      }
+
+      setManifesto([]);
+      const reader = resp.body.getReader();
+      let decoder = new TextDecoder();
+      let manifest = '';
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        manifest += decoder.decode(value);
+        setManifesto(manifest);
+      }
+    } catch (err) {
+      console.error('Failed to fetch manifesto:', err);
+      alert('Failed to fetch manifesto');
     }
+    setLoading(false);
   }
 
   return (
@@ -47,8 +58,12 @@ function App() {
           />
         </div>
       </div>
-      <button onClick={() => getManifesto()}>
-        Get the manifesto
+      <button onClick={() => getManifesto()} className={loading ? 'button button-loading' : 'button'}>
+        <label htmlFor="">Get the manifesto</label>
+        <iconify-icon
+          icon="fa6-solid:hand-fist"
+          style={{ color: '#aa0000', fontSize: '36px' }}
+        ></iconify-icon>
       </button>
       <ManifestoRenderer manifesto={manifesto} />
     </>
