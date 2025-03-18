@@ -9,6 +9,7 @@
     font-size: 15px;
     line-height: 25px;
     max-width: 50vw;
+    white-space: pre-wrap;
 
     &:hover {
         box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.2);
@@ -18,14 +19,4 @@
     @media (max-width: 768px) {
         transform: rotate(0deg);
     }
-}
-
-.manifesto p {
-    margin: 0px;
-    margin-bottom: 25px;
-}
-
-.manifesto-word {
-    white-space: pre-wrap;
-}
 }

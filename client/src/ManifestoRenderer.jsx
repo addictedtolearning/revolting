@@ -24,9 +24,7 @@ function ManifestoRenderer({ manifesto }) {
         <div>
             <h2>Manifesto:</h2>
             <div className="manifesto">
-                <Markdown>
-                    {manifestoString}
-                </Markdown>
+                {manifestoString}
             </div>
         </div>
     );
