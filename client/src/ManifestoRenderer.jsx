@@ -20,13 +20,21 @@ function ManifestoRenderer({ manifesto }) {
         }
     }
 
+    var words = manifestoString.split(' ');
+    var elements = [];
+    for (var word of words) {
+        var className = 'manifesto-word';
+        if (word.toUpperCase() === word) {
+            className += ' manifesto-word-uppercase';
+        }
+        elements.push(<span className={className}>{word} </span>);
+    }
+
     return (
         <div>
             <h2>Manifesto:</h2>
             <div className="manifesto">
-                <Markdown>
-                    {manifestoString}
-                </Markdown>
+                {elements}
             </div>
         </div>
     );
