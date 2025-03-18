@@ -4,13 +4,15 @@ const client = new OpenAI();
 
 export default async (req: Request, context: Context) => {
   const body = await req.json();
+  console.log(body);
 
-  const completion = await client.chat.completions.create({
+  const openai_response = await client.chat.completions.create({
     model: "gpt-4o-mini",
+    stream: true,
     messages: [
       {
         role: "system",
-        content: "Generate a dictatorial propaganda speech. It should be excessively (and hilariously) dramatic. Use capital words for emphasis."
+        content: "Generate a dictatorial propaganda speech. It should be hilariously dramatic. Use capital words for emphasis."
       },
       {
         role: "user",
@@ -19,9 +21,9 @@ export default async (req: Request, context: Context) => {
     ],
   });
 
-  const response = completion.choices[0].message.content;
-  console.log(response);
-  return new Response(JSON.stringify({ manifesto: response }), {
-    headers: { "Content-Type": "application/json" }
+  return new Response(openai_response.toReadableStream(), {
+    headers: {
+      "Content-Type": "text/event-stream",
+    },
   });
 }

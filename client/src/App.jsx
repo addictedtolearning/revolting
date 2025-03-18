@@ -4,7 +4,7 @@ import ManifestoRenderer from './ManifestoRenderer';
 
 function App() {
   const [cause, setCause] = useState('');
-  const [manifesto, setManifesto] = useState('');
+  const [manifesto, setManifesto] = useState([]);
 
   async function getManifesto() {
     var resp = await fetch('/.netlify/functions/manifesto', {
@@ -20,8 +20,16 @@ function App() {
       return;
     }
 
-    var data = await resp.json();
-    setManifesto(data.manifesto);
+    setManifesto([]);
+    const reader = resp.body.getReader();
+    let decoder = new TextDecoder();
+    let manifest = '';
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      manifest += decoder.decode(value);
+      setManifesto(manifest);
+    }
   }
 
   return (
