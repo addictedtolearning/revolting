@@ -16,6 +16,13 @@ Then install dependencies.
 npm install
 ```
 
+You will need an OpenAI key.
+
+> [!WARNING]
+> This project does not provide rate limiting.
+> Ensure that you have a budget limit and rate limit set in OpenAI.
+> It is a good idea to use a separate project with its own limit.
+
 # Launching
 
 ```sh
