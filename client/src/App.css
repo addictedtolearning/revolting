@@ -38,6 +38,15 @@
 h2 {
   text-align: center;
 }
+
+.error {
+  color: rgb(63, 2, 2);
+  color: #aa0000;
+  font-weight: bold;
+  max-width: 300px;
+  margin: 10px 0px;
+}
+
 .button {
   height: 50px;
   width: 230px;
@@ -61,16 +70,18 @@ h2 {
     align-items: center;
     justify-content: center;
   }
-  
+
   &.button-loading {
     background: rgb(255, 162, 162);
     animation: wiggle 0.3s infinite;
     width: 80px;
     color: transparent;
     transition: all 1s, color 0s 0.2s;
+
     iconify-icon {
       transform: scale(1);
     }
+
     label {
       display: none;
     }
@@ -81,15 +92,19 @@ h2 {
   0% {
     transform: rotate(0deg);
   }
+
   25% {
     transform: rotate(5deg);
   }
+
   50% {
     transform: rotate(-5deg);
   }
+
   75% {
     transform: rotate(5deg);
   }
+
   100% {
     transform: rotate(0deg);
   }
