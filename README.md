@@ -4,6 +4,7 @@ Generate dictatorial propapaganda speeches about any chosen topic.
 
 Written with React, Vite and Netlify Functions.
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/addictedtolearning/revolting)
 
 # Prerequisites
 

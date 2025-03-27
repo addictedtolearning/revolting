@@ -4,3 +4,6 @@
 [dev]
     command="npm run client-dev"
     targetPort=5173
+
+[template.environment]
+    OPENAI_API_KEY="Enter your OpenAI key here"
