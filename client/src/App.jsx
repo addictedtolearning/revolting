@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import ManifestoRenderer from './ManifestoRenderer';
 import "iconify-icon";
-
+import GitHubCorner from './GitHubCorner';
 
 function App() {
   const [cause, setCause] = useState('');
@@ -45,6 +45,7 @@ function App() {
 
   return (
     <>
+      <GitHubCorner />
       <h1>
         Viva la revolución!
       </h1>
