@@ -8,7 +8,7 @@ Written with React, Vite and Netlify Functions.
 
 # Prerequisites
 
-Install Node (tested with v18.16.0) and [Netlify CLI](https://docs.netlify.com/cli/local-development/)
+Install [Node](https://nodejs.org/en/download) (tested with v18.16.0) and [Netlify CLI](https://docs.netlify.com/cli/local-development/)
 
 Then install dependencies.
 
@@ -16,7 +16,13 @@ Then install dependencies.
 npm install
 ```
 
-You will need an OpenAI key.
+You will need an OpenAI key. To enter this, you can first create the .env file:
+
+ ```sh
+ cp .env.sample .env
+ ```
+
+ And then insert your OpenAI key into the .env file.
 
 > [!WARNING]
 > This project does not provide rate limiting.
